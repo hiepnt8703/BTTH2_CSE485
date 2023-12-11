@@ -5,6 +5,7 @@ class Articles {
 	private $categoryTable = 'cms_category';
 	private $userTable = 'cms_user';
 	private $conn;
+	public $id;
 	
 	public function __construct($db){
         $this->conn = $db;
