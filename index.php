@@ -10,13 +10,13 @@ $article->id = 0;
 
 $result = $article->getArticles();
 
-include('inc/header.php');
+include('layout/header.php');
 
 ?>
 <title>Demo Build Content Management System with PHP & MySQL</title>
 <link href="css/style.css" rel="stylesheet" id="bootstrap-css">
 
-<?php include('inc/container.php');?>
+<?php include('layout/container.php');?>
 <div class="container">	
 		<div id="blog" class="row">
 			<div class="header">
@@ -46,4 +46,4 @@ include('inc/header.php');
 		<?php } ?>   	
 	</div>
 </div>
-<?php include('inc/footer.php');?>
+<?php include('layout/footer.php');?>
