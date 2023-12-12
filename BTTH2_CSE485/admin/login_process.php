@@ -1,12 +1,11 @@
 
-<!-- login_process.php -->
 
 <?php
-// Kết nối đến cơ sở dữ liệu - Thay đổi các thông số kết nối cho phù hợp
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "phpzag_demo";
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Kiểm tra kết nối
@@ -18,8 +17,6 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["username"];
     $password = $_POST["password"];
-
-    // Sử dụng prepared statement để ngăn chặn tấn công SQL injection
     $sql = "SELECT * FROM cms_user WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -30,18 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $hashedPassword = $row['password'];
-
-        // Kiểm tra mật khẩu đã được mã hóa
-        if (password_verify($password, $hashedPassword)) {
-            // Đăng nhập thành công
+        if (md5($password) === $hashedPassword) {
             header("Location: dashboard.php");
             exit();
         } else {
-            // Đăng nhập thất bại
             echo "Invalid email or password";
         }
     } else {
-        // Đăng nhập thất bại
         echo "Invalid email or password";
     }
 
