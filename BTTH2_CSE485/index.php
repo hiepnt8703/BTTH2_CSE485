@@ -25,7 +25,7 @@ include('layout/header.php');
 				<a href="index.php">Home</a>
 				<a href="#contact">Contact</a>
 				<a href="#about">About</a>
-				<a href="login.php">login</a>
+				<a href="admin/login.php">login</a>
 
 			</div>
 		</div>	
