@@ -11,7 +11,6 @@
                 die("Error failed to connect to MySQL: " . $conn->connect_error);
             } else {
                 return $conn;
-                
             }
         }
     }

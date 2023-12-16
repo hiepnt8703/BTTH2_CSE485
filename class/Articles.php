@@ -5,7 +5,6 @@ class Articles {
 	private $categoryTable = 'cms_category';
 	private $userTable = 'cms_user';
 	private $conn;
-	public $id;
 	
 	public function __construct($db){
         $this->conn = $db;
@@ -26,7 +25,7 @@ class Articles {
 			
 		$stmt = $this->conn->prepare($sqlQuery);		
 		$stmt->execute();
-		$result = $stmt->get_result();
+		$result = $stmt->get_result();	
 		return $result;
 	}
 	
